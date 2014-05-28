@@ -3,7 +3,7 @@ from distutils.core import setup
 setup(
     name='pelican-tutorial',
     version='0.8',
-    packages=['pelican_tutorials'],
+    packages=['pelican_tutorial'],
     url='https://github.com/rackerlabs/pelican-tutorial',
     license='AGPL',
     author='Bill Anderson',
