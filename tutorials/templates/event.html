@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block main_content %}
+
+<h1> Event: {{event.name}} </h1>
+<div class="row">
+	<div class="col-md-2"> <p> <b>Location</b>: </p> </div>
+	<div class="col-md-10"> <p> {{event.location}} </p> </div>
+</div>
+<div class="row">
+	<div class="col-md-2"> <p> <b>Start</b>: </p> </div>
+	<div class="col-md-4"> <p> {{event.starts}} </p> </div>
+	<div class="col-md-2"> <p> <b>End</b>: </p> </div>
+	<div class="col-md-4"> <p> {{event.ends}} </p> </div>
+</div>
+<p {% if event.description | length > 120 %} class="dropcap" {%endif%}> {{event.description}} </p> 
+{% endblock %}
