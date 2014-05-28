@@ -9,5 +9,4 @@ setup(
     author='Bill Anderson',
     author_email='bill.anderson@rackspace.com',
     description='A pelican tutorials plugin',
-    install_requires = ['pelican',]
 )
