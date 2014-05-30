@@ -38,7 +38,7 @@ basic criteria, as seen in `contents.py`.
 With these bits in place you can now use the template engine to generate
 per-tutorial pages. The default template is `tutorial.html`. Coming soon will be an
 `tutorials.html` option to specify a template for generating a list of all tutorials
-- much the same as is done with blog posts.
+-- much the same as is done with blog posts.
 
 Included in the plugin is a `templates` directory with a sample `tutorial.html`
 template. It is very minimal showing just the basic details of the tutorial. It is
