@@ -9,6 +9,7 @@ from pelican.utils import process_translations
 from pelican import signals
 from pelican.generators import CachingGenerator
 from .contents import Tutorial
+from .signals import *
 
 logger = logging.getLogger(__name__)
 
@@ -19,12 +20,6 @@ logger = logging.getLogger(__name__)
 # are hazy at best. It appears you simply define them here and use them in the
 # code below. YMMV.
 
-
-from blinker import signal
-tutorial_generator_init = signal('tutorial_generator_init')
-tutorial_generator_finalized = signal('tutorial_generator_finalized')
-tutorial_generator_preread = signal('tutorial_generator_preread')
-tutorial_generator_context = signal('tutorial_generator_context')
 
 class TutorialsGenerator(CachingGenerator):
     """

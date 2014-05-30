@@ -11,7 +11,7 @@ except ImportError:
 
 import six
 import hashlib
-from pelican import signals
+from pelican import signals as core_signals
 from pprint import pprint
 import os
 
@@ -24,37 +24,19 @@ from pelican.utils import pelican_open
 from blinker import signal
 tutorial_generator_init = signal('tutorial_generator_init')
 tutorial_generator_finalized = signal('tutorial_generator_finalized')
+tutorial_generator_preread = signal('tutorial_generator_preread')
+tutorial_generator_context = signal('tutorial_generator_context')
 
 from .generators import TutorialsGenerator
-
-class TutorialReader(readers.BaseReader):
-	enabled = bool(json)
-	file_extensions = ["tutorial"]
-	def read(self, source_path):
-		with pelican_open(source_path) as text:
-			print( text )
-			data = {}
-			pre_data = json.loads(text)
-		for k,v in pre_data.items():
-			data[k.lower()] = v
-		return ("",data)
-
-
-def add_reader(readers):
-	readers.reader_classes['tutorial'] = TutorialReader
-
-
-def initTutorials(generator):
-	tutorials_dict = {}
-	try:
-		tutorials = generator.context['tutorials']
-	except KeyError:
-		generator.context['tutorials'] = tutorials = {}
 
 def get_generators(generators):
 	return TutorialsGenerator
 
 def register():
-	signals.readers_init.connect(add_reader)
-	signals.get_generators.connect(get_generators)
+	core_signals.get_generators.connect(get_generators)
+	try:
+		from authordb import load_data_from_authordb
+		tutorial_generator_context.connect(load_data_from_authordb)
+	except Exception as exc:
+		print("Unable to import and connect authordb")
 
