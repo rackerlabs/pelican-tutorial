@@ -6,6 +6,6 @@ class Tutorial(Page):
     and indexed on a static site generation. It is intended to be used with the
     JSON generator and custom templates.
     """
-    base_properties = ('title','description','author','level')
+    base_properties = ('title','description','author','level','repository')
     mandatory_properties = ('title','author','level')
     default_template = 'tutorial'
