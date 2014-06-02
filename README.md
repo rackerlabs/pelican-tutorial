@@ -33,7 +33,44 @@ directory. It will need to have a minimum set of fields in order to meet the
 basic criteria, as seen in `contents.py`.
 
 
-# Template
+# Tutorial Metadata
+
+## Mandatory Properties
+
+Mandatory properties are entries in the metadata/front-matter which are
+required for the tutorial to be processed. The idea here is to ensure
+tutorial-specific data is present. 
+
+1. Level
+	This field identifies the level of difficulty or required knowledge this
+	tutorial was written for.
+
+2. Author
+	The person or persons who write this tutorial.
+
+3. Title
+	The title of the article.
+
+## Recommended Properties
+
+In order to obtain a better experience, certain properties are available. It is
+recommended these be present in order to take full advantage of templating and
+per-tutorial informatioobtain a better experience, certain properties are
+available. It is recommended these be present in order to take full advantage
+of templating and per-tutorial information
+
+1. Subtitle
+	Usually used for a more descriptive single-line explanation of what the
+	tutorial is for.  # Template
+
+2. Repository 
+	All tutorials which involve code should have the source code described in
+	the tutorial available. This property can represent a source repository
+	such as Github, but could also be a direct-to-download link.
+
+3. Description
+	This is a summary field use din most templating to provide a *brief*
+	description of the tutorial.
 
 With these bits in place you can now use the template engine to generate
 per-tutorial pages. The default template is `tutorial.html`. Coming soon will be a
